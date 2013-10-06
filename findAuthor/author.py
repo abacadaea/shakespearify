@@ -1,11 +1,11 @@
 authors = [
 'dickens',
-#'freud',
+'freud',
 #'gladwell',
 #'hemingway',
 #'jefferson',
 #'kant',
-#'poe',
+'poe',
 'shakespeare',
 #'sophocles',
 #'thoreau',
