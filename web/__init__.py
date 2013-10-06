@@ -1,21 +1,28 @@
 import os
+import sys
 import cherrypy
 from mako.template import Template
 from mako.lookup import TemplateLookup
+
+sys.path.append('../findAuthor')
+
+import findAuthor
 
 lookup = TemplateLookup(directories=['static'])
 
 class Main:
   def index(self):
     tmpl = lookup.get_template("index.txt")
-    return tmpl.render()
+    return tmpl.render(author=None)
   
   index.exposed = True
   
   def analyze(self, sentenceReceived=None):
     print sentenceReceived
+    authorFound = findAuthor.test_string(sentenceReceived)
+    print authorFound
     tmpl = lookup.get_template("index.txt")
-    return tmpl.render()
+    return tmpl.render(author=authorFound)
 
   analyze.exposed=True
 
