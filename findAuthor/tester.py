@@ -7,7 +7,7 @@ authors = [
 'yudkowsky',
 ]
 
-MAX_LINES_PER_FILE = 50000
+MAX_WORDS_PER_FILE = 400000
 MAX_TRAIN = 30000
 MAX_TEST = 1000
 
@@ -28,11 +28,11 @@ def read_input ():
 	for author in authors:
 		#files [author] = open ('../data/' + author,'r')
 		wordfile = open ('../data/' + author + '.txt','r')
-		numlines = 0
+		numwords = 0
 		words = []
 
 		for line in wordfile:
-			if numlines > MAX_LINES_PER_FILE:
+			if numwords >= MAX_WORDS_PER_FILE:
 				break
 
 			cur_words = line.split ()
@@ -40,12 +40,12 @@ def read_input ():
 				if (word [len (word) - 1] == '.'):
 					if (len (words) > 0):
 						sentences.append ([words, author])
+						numwords += len (words)
 						words = []
 				word_clean = clean (word.lower ())
 				if len (word_clean) > 0:
 					words.append (word_clean)
-			numlines += 1
-		print "Inputted", author, ";", numlines, "total lines"
+		print "Inputted", author, ";", numwords, "total words"
 	random.shuffle (sentences)
 
 def get_train ():
