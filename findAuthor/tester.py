@@ -2,7 +2,7 @@ import random, math, findAuthor
 
 authors = [
 'shakespeare', 
-'hi',
+'dickens',
 ]
 
 MAX_LINES_PER_FILE = 30000
@@ -25,7 +25,7 @@ def clean (word):
 def read_input ():
 	for author in authors:
 		#files [author] = open ('../data/' + author,'r')
-		wordfile = open ('../data/' + author,'r')
+		wordfile = open ('../data/' + author + '.txt','r')
 		numlines = 0
 		words = []
 
@@ -39,7 +39,7 @@ def read_input ():
 				word_clean = clean (word.lower ())
 				if len (word_clean) > 0:
 					words.append (word_clean)
-
+	random.shuffle (sentences)
 
 def get_train ():
 	if num_train >= MAX_TRAIN:
@@ -47,7 +47,7 @@ def get_train ():
 	sent_ind += 1
 	return sentences [sent_ind]
 
-def test ():
+def run_tests ():
 	correct = 0
 	total = 0
 	
@@ -57,46 +57,3 @@ def test ():
 			correct += 1
 		total += 1
 		print correct + '/' + total
-
-random.shuffle (sentences)
-=======
-from math import log
-from tester import get_train
-
-authors = []
-EPS = 1E-5
-
-freq = dict()
-
-for author in authors:
-	freq[author] = dict()
-
-def train(sentence, author):
-
-	example = get_train()
-
-	while example is not None:
-		[sentence, author] = example
-		words = sentence.rstrip().split()
-		for word in words:
-			if word not in freq[author]: # this code is ugly
-				freq[author] = 0	
-			freq[author] = 1
-
-		example = get_train()
-
-def test(sentence):
-	bayes = dict()
-	for author in authors:
-		bayes[author] = 0
-
-	words = sentence.rstrip().split()
-	for word in words:
-		for author in authors:
-			if word not in freq[author]:
-				bayes[author] += log(EPS)
-			else:
-				bayes[author] += log(freq[author][word])
-
-	return max(bayes.iterkeys(), key = (lambda key: bayes[key]))
->>>>>>> 2f29b9fe06f7c72a4a519aabcb581691cc393cfc
