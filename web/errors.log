@@ -151,3 +151,62 @@ AttributeError: 'Template' object has no attribute 'css_scripts'
 [06/Oct/2013:04:41:56] ENGINE Bus EXITED
 [06/Oct/2013:04:41:56] ENGINE Waiting for child threads to terminate...
 [06/Oct/2013:04:41:56] ENGINE Waiting for thread CP Server Thread-5.
+[06/Oct/2013:04:44:38] ENGINE Listening for SIGHUP.
+[06/Oct/2013:04:44:38] ENGINE Listening for SIGTERM.
+[06/Oct/2013:04:44:38] ENGINE Listening for SIGUSR1.
+[06/Oct/2013:04:44:38] ENGINE Bus STARTING
+[06/Oct/2013:04:44:38] ENGINE Started monitor thread 'Autoreloader'.
+[06/Oct/2013:04:44:38] ENGINE Started monitor thread '_TimeoutMonitor'.
+[06/Oct/2013:04:44:38] ENGINE Serving on 127.0.0.1:2000
+[06/Oct/2013:04:44:38] ENGINE Bus STARTED
+[06/Oct/2013:04:49:36] ENGINE Restarting because /home/msd/Code/HackMIT/shakespearify/findAuthor/tester.py changed.
+[06/Oct/2013:04:49:36] ENGINE Stopped thread 'Autoreloader'.
+[06/Oct/2013:04:49:36] ENGINE Bus STOPPING
+[06/Oct/2013:04:49:36] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('127.0.0.1', 2000)) shut down
+[06/Oct/2013:04:49:36] ENGINE Stopped thread '_TimeoutMonitor'.
+[06/Oct/2013:04:49:36] ENGINE Bus STOPPED
+[06/Oct/2013:04:49:36] ENGINE Bus EXITING
+[06/Oct/2013:04:49:36] ENGINE Bus EXITED
+[06/Oct/2013:04:49:36] ENGINE Waiting for child threads to terminate...
+[06/Oct/2013:04:49:36] ENGINE Re-spawning __init__.py
+[06/Oct/2013:04:49:51] ENGINE Listening for SIGHUP.
+[06/Oct/2013:04:49:51] ENGINE Listening for SIGTERM.
+[06/Oct/2013:04:49:51] ENGINE Listening for SIGUSR1.
+[06/Oct/2013:04:49:51] ENGINE Bus STARTING
+[06/Oct/2013:04:49:51] ENGINE Started monitor thread 'Autoreloader'.
+[06/Oct/2013:04:49:51] ENGINE Started monitor thread '_TimeoutMonitor'.
+[06/Oct/2013:04:49:51] ENGINE Serving on 127.0.0.1:2000
+[06/Oct/2013:04:49:51] ENGINE Bus STARTED
+[06/Oct/2013:04:50:00] ENGINE Listening for SIGHUP.
+[06/Oct/2013:04:50:00] ENGINE Listening for SIGTERM.
+[06/Oct/2013:04:50:00] ENGINE Listening for SIGUSR1.
+[06/Oct/2013:04:50:00] ENGINE Bus STARTING
+[06/Oct/2013:04:50:00] ENGINE Started monitor thread 'Autoreloader'.
+[06/Oct/2013:04:50:00] ENGINE Started monitor thread '_TimeoutMonitor'.
+[06/Oct/2013:04:50:06] ENGINE Error in 'start' listener <bound method Server.start of <cherrypy._cpserver.Server object at 0xd6c790>>
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/site-packages/cherrypy/process/wspbus.py", line 197, in publish
+    output.append(listener(*args, **kwargs))
+  File "/usr/lib64/python2.7/site-packages/cherrypy/_cpserver.py", line 151, in start
+    ServerAdapter.start(self)
+  File "/usr/lib64/python2.7/site-packages/cherrypy/process/servers.py", line 168, in start
+    wait_for_free_port(*self.bind_addr)
+  File "/usr/lib64/python2.7/site-packages/cherrypy/process/servers.py", line 412, in wait_for_free_port
+    raise IOError("Port %r not free on %r" % (port, host))
+IOError: Port 2000 not free on '127.0.0.1'
+
+[06/Oct/2013:04:50:06] ENGINE Shutting down due to error in start listener:
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/site-packages/cherrypy/process/wspbus.py", line 235, in start
+    self.publish('start')
+  File "/usr/lib64/python2.7/site-packages/cherrypy/process/wspbus.py", line 215, in publish
+    raise exc
+ChannelFailures: IOError("Port 2000 not free on '127.0.0.1'",)
+
+[06/Oct/2013:04:50:06] ENGINE Bus STOPPING
+[06/Oct/2013:04:50:06] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('127.0.0.1', 2000)) already shut down
+[06/Oct/2013:04:50:06] ENGINE Stopped thread '_TimeoutMonitor'.
+[06/Oct/2013:04:50:06] ENGINE Stopped thread 'Autoreloader'.
+[06/Oct/2013:04:50:06] ENGINE Bus STOPPED
+[06/Oct/2013:04:50:06] ENGINE Bus EXITING
+[06/Oct/2013:04:50:06] ENGINE Bus EXITED
