@@ -5,7 +5,7 @@ from string import ascii_lowercase
 from author import authors
 
 MAX_WORDS_PER_FILE = 1000000
-MAX_TRAIN = 10000
+MAX_TRAIN = 100000
 MAX_TEST = 1000
 
 sent_ind = 0
@@ -18,7 +18,7 @@ word_map = dict ()
 def clean (word):
 	ret = ""
 	for c in word:
-		if c in ascii_lowercase or c == '\'':
+		if c in ascii_lowercase:# or c == '':
 			ret = ret + c
 	return ret
 

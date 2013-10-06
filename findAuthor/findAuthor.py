@@ -40,8 +40,9 @@ def get_feature_vector (sentence):
 		if word in word_map:
 			X [word_map[word], 0] += 1
     #use api stuff
-	score = interpret.stringToSentiment(' '.join(sentence))
-	X [NUM_WORDS, 0] = score
+	#score = interpret.stringToSentiment(' '.join(sentence))
+	#X [NUM_WORDS, 0] = score
+	#X [NUM_WORDS, 0] = 0
 
     #done
 	return X
@@ -100,7 +101,7 @@ def train():
 	num_iter = 0
 	num_cor = 0
 	while True:
-		if num_iter >= MAX_TRAIN * EPOCHS/10:
+		if num_iter >= MAX_TRAIN * EPOCHS/100:
 			break
 		num_iter += 1
 
@@ -109,8 +110,7 @@ def train():
 		x = numpy.mat (get_feature_vector (sentence))
 		d = mat_author (author)
 		Y = W * x
-		#W += alpha * (d - Y) * (x.transpose())
-
+		W += alpha * (d - Y) * (x.transpose())
 		
 		if num_iter % 10 == 0:
 			print num_iter
@@ -142,7 +142,7 @@ def test_string (s):
 
 print "Reading Input..."
 read_input ()
-N = len (word_list) + 1 # size of feature vector
+N = len (word_list) # size of feature vector
 W = numpy.mat (numpy.zeros((NUM_AUTHORS, N)))
 NUM_WORDS = len(word_list)
 
