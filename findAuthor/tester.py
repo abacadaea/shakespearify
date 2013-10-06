@@ -3,7 +3,9 @@ from string import ascii_lowercase
 
 authors = [
 'aristotle',
+'christie',
 'dickens',
+'gladwell',
 'jefferson',
 'kant',
 'poe',
