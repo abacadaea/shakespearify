@@ -61,6 +61,7 @@
         <form action="analyze" method="post">
           <input type="text" placeholder="Enter a sentence" 
           class="form-control" name="sentenceReceived"/>
+          <p>Your author is: ${author}</p>
         </form>
       </div>
     </div>
