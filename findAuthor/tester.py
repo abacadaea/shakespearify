@@ -1,14 +1,19 @@
+#tester.py
+
 import random, math
 from string import ascii_lowercase
 from author import authors
 
-MAX_WORDS_PER_FILE = 10000000
+MAX_WORDS_PER_FILE = 1000000
 MAX_TRAIN = 100000
 MAX_TEST = 1000
 
 sent_ind = 0
 #files = dict ()
 sentences = []
+
+word_list = ['']
+word_map = dict ()
 
 def clean (word):
 	ret = ""
@@ -20,6 +25,8 @@ def clean (word):
 #open files
 #read 
 def read_input ():
+	global word_list, word_map, sentences
+
 	for author in authors:
 		#files [author] = open ('../data/' + author,'r')
 		wordfile = open ('../data/' + author + '.txt','r')
@@ -39,6 +46,11 @@ def read_input ():
 						words = []
 				word_clean = clean (word.lower ())
 				if len (word_clean) > 0:
+					if word_clean not in word_map:
+						word_map [word_clean] = len (word_list) 
+						word_list.append (word_clean)
+						assert (word_list[word_map[word_clean]] == word_clean)
+
 					words.append (word_clean)
 		print "Inputted", author + ";", numwords, "total words"
 	random.shuffle (sentences)
@@ -46,14 +58,13 @@ def read_input ():
 def get_train ():
 	global sent_ind, sentences
 
-	if sent_ind >= MAX_TRAIN:
-		return None
-	sent_ind += 1
+	sent_ind = (sent_ind + 1) % MAX_TRAIN
+	print sent_ind, len (sentences)
 	return sentences [sent_ind]
 
 def run_tests (predictor):
 	global sent_ind, sentences
-	
+
 	correct = 0
 	total = 0
 	
@@ -64,5 +75,6 @@ def run_tests (predictor):
 		# else:
 		# 	print sentences [i][0], sentences [i][1], ret
 		total += 1
-		if (i % 1000 == 999):
+		if (i % 10 == 9):
 			print str(100.0 * correct/total) +'%', str(correct) + '/' + str(total)
+			print ret
