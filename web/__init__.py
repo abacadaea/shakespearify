@@ -2,6 +2,7 @@ import os
 import cherrypy
 from mako.template import Template
 from mako.lookup import TemplateLookup
+
 lookup = TemplateLookup(directories=['static'])
 
 class Main:
@@ -37,6 +38,14 @@ config = {
               'tools.staticdir.on' : True,
               'tools.staticdir.dir' : 'static',
     },
+          '/css' : {
+              'tools.staticdir.on' : True,
+              'tools.staticdir.dir' : 'static/css'
+            },
+          '/js' : {
+              'tools.staticdir.on' : True,
+              'tools.staticdir.dir' : 'static/js'
+            }
 }
 
 cherrypy.quickstart(Main(), '/', config)

@@ -45,3 +45,38 @@ AttributeError: 'Template' object has no attribute 'css_scripts'
 [06/Oct/2013:03:44:17] ENGINE Bus EXITED
 [06/Oct/2013:03:44:17] ENGINE Waiting for child threads to terminate...
 [06/Oct/2013:03:44:17] ENGINE Waiting for thread CP Server Thread-7.
+[06/Oct/2013:04:13:57] ENGINE Listening for SIGHUP.
+[06/Oct/2013:04:13:57] ENGINE Listening for SIGTERM.
+[06/Oct/2013:04:13:57] ENGINE Listening for SIGUSR1.
+[06/Oct/2013:04:13:57] ENGINE Bus STARTING
+[06/Oct/2013:04:13:57] ENGINE Started monitor thread '_TimeoutMonitor'.
+[06/Oct/2013:04:13:57] ENGINE Started monitor thread 'Autoreloader'.
+[06/Oct/2013:04:13:57] ENGINE Serving on 127.0.0.1:2000
+[06/Oct/2013:04:13:57] ENGINE Bus STARTED
+[06/Oct/2013:04:14:14] ENGINE Keyboard Interrupt: shutting down bus
+[06/Oct/2013:04:14:14] ENGINE Bus STOPPING
+[06/Oct/2013:04:14:19] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('127.0.0.1', 2000)) shut down
+[06/Oct/2013:04:14:19] ENGINE Stopped thread '_TimeoutMonitor'.
+[06/Oct/2013:04:14:19] ENGINE Stopped thread 'Autoreloader'.
+[06/Oct/2013:04:14:19] ENGINE Bus STOPPED
+[06/Oct/2013:04:14:19] ENGINE Bus EXITING
+[06/Oct/2013:04:14:19] ENGINE Bus EXITED
+[06/Oct/2013:04:14:19] ENGINE Waiting for child threads to terminate...
+[06/Oct/2013:04:14:19] ENGINE Waiting for thread CP Server Thread-8.
+[06/Oct/2013:04:14:52] ENGINE Listening for SIGHUP.
+[06/Oct/2013:04:14:52] ENGINE Listening for SIGTERM.
+[06/Oct/2013:04:14:52] ENGINE Listening for SIGUSR1.
+[06/Oct/2013:04:14:52] ENGINE Bus STARTING
+[06/Oct/2013:04:14:52] ENGINE Started monitor thread '_TimeoutMonitor'.
+[06/Oct/2013:04:14:52] ENGINE Started monitor thread 'Autoreloader'.
+[06/Oct/2013:04:14:52] ENGINE Serving on 127.0.0.1:2000
+[06/Oct/2013:04:14:52] ENGINE Bus STARTED
+[06/Oct/2013:04:15:30] ENGINE Keyboard Interrupt: shutting down bus
+[06/Oct/2013:04:15:30] ENGINE Bus STOPPING
+[06/Oct/2013:04:15:30] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('127.0.0.1', 2000)) shut down
+[06/Oct/2013:04:15:30] ENGINE Stopped thread '_TimeoutMonitor'.
+[06/Oct/2013:04:15:30] ENGINE Stopped thread 'Autoreloader'.
+[06/Oct/2013:04:15:30] ENGINE Bus STOPPED
+[06/Oct/2013:04:15:30] ENGINE Bus EXITING
+[06/Oct/2013:04:15:30] ENGINE Bus EXITED
+[06/Oct/2013:04:15:30] ENGINE Waiting for child threads to terminate...
