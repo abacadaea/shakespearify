@@ -1,4 +1,4 @@
-import random, math, findAuthor
+import random, math
 
 authors = [
 'shakespeare', 
@@ -47,12 +47,12 @@ def get_train ():
 	sent_ind += 1
 	return sentences [sent_ind]
 
-def run_tests ():
+def run_tests (predictor):
 	correct = 0
 	total = 0
 	
 	for i in range (MAX_TRAIN, MAX_TRAIN + MAX_TEST):
-		ret = findAuthor.test (sentences[i][0])
+		ret = predictor (sentences[i][0])
 		if ret == sentences [i][1]:
 			correct += 1
 		total += 1
