@@ -1,7 +1,7 @@
 from math import log
 from tester import read_input,get_train, run_tests, authors
 
-EPS = 1E-5
+EPS = 1E-3
 
 freq = dict()
 

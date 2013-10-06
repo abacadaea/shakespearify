@@ -4,9 +4,10 @@ from string import ascii_lowercase
 authors = [
 'shakespeare', 
 'dickens',
+'yudkowsky',
 ]
 
-MAX_LINES_PER_FILE = 30000
+MAX_LINES_PER_FILE = 50000
 MAX_TRAIN = 30000
 MAX_TEST = 1000
 
@@ -31,6 +32,9 @@ def read_input ():
 		words = []
 
 		for line in wordfile:
+			if numlines > MAX_LINES_PER_FILE:
+				break
+
 			cur_words = line.split ()
 			for word in cur_words:
 				if (word [len (word) - 1] == '.'):
@@ -40,6 +44,8 @@ def read_input ():
 				word_clean = clean (word.lower ())
 				if len (word_clean) > 0:
 					words.append (word_clean)
+			numlines += 1
+		print "Inputted", author, ";", numlines, "total lines"
 	random.shuffle (sentences)
 
 def get_train ():
