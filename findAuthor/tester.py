@@ -2,12 +2,17 @@ import random, math
 from string import ascii_lowercase
 
 authors = [
-'shakespeare', 
+'aristotle',
 'dickens',
-'yudkowsky',
+'jefferson',
+'kant',
+'poe',
+'shakespeare',
+'sophocles',
+'yudkowsky'
 ]
 
-MAX_WORDS_PER_FILE = 400000
+MAX_WORDS_PER_FILE = 10000000
 MAX_TRAIN = 30000
 MAX_TEST = 1000
 
