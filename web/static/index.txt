@@ -36,7 +36,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Shakespearify</a>
+          <a class="navbar-brand" href="#">Guess Who?</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -49,7 +49,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Shakespearify!</h1>
+        <h1>Guess Who?</h1>
         <p>Try to recognize the person saying a sentence from this neural network project</p>
         <form action="analyze" method="post">
           <input type="text" placeholder="Enter a sentence" 

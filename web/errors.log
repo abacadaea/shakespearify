@@ -228,3 +228,105 @@ ChannelFailures: IOError("Port 2000 not free on '127.0.0.1'",)
 [06/Oct/2013:05:16:42] ENGINE Started monitor thread '_TimeoutMonitor'.
 [06/Oct/2013:05:16:42] ENGINE Serving on 127.0.0.1:2000
 [06/Oct/2013:05:16:42] ENGINE Bus STARTED
+[06/Oct/2013:05:20:25] ENGINE Listening for SIGHUP.
+[06/Oct/2013:05:20:25] ENGINE Listening for SIGTERM.
+[06/Oct/2013:05:20:25] ENGINE Listening for SIGUSR1.
+[06/Oct/2013:05:20:25] ENGINE Bus STARTING
+[06/Oct/2013:05:20:25] ENGINE Started monitor thread 'Autoreloader'.
+[06/Oct/2013:05:20:25] ENGINE Started monitor thread '_TimeoutMonitor'.
+[06/Oct/2013:05:20:30] ENGINE Error in 'start' listener <bound method Server.start of <cherrypy._cpserver.Server object at 0x1b08790>>
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/site-packages/cherrypy/process/wspbus.py", line 197, in publish
+    output.append(listener(*args, **kwargs))
+  File "/usr/lib64/python2.7/site-packages/cherrypy/_cpserver.py", line 151, in start
+    ServerAdapter.start(self)
+  File "/usr/lib64/python2.7/site-packages/cherrypy/process/servers.py", line 168, in start
+    wait_for_free_port(*self.bind_addr)
+  File "/usr/lib64/python2.7/site-packages/cherrypy/process/servers.py", line 412, in wait_for_free_port
+    raise IOError("Port %r not free on %r" % (port, host))
+IOError: Port 2000 not free on '127.0.0.1'
+
+[06/Oct/2013:05:20:30] ENGINE Shutting down due to error in start listener:
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/site-packages/cherrypy/process/wspbus.py", line 235, in start
+    self.publish('start')
+  File "/usr/lib64/python2.7/site-packages/cherrypy/process/wspbus.py", line 215, in publish
+    raise exc
+ChannelFailures: IOError("Port 2000 not free on '127.0.0.1'",)
+
+[06/Oct/2013:05:20:30] ENGINE Bus STOPPING
+[06/Oct/2013:05:20:30] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('127.0.0.1', 2000)) already shut down
+[06/Oct/2013:05:20:30] ENGINE Stopped thread '_TimeoutMonitor'.
+[06/Oct/2013:05:20:30] ENGINE Stopped thread 'Autoreloader'.
+[06/Oct/2013:05:20:30] ENGINE Bus STOPPED
+[06/Oct/2013:05:20:30] ENGINE Bus EXITING
+[06/Oct/2013:05:20:30] ENGINE Bus EXITED
+[06/Oct/2013:06:04:07] ENGINE Caught signal SIGHUP.
+[06/Oct/2013:06:04:07] ENGINE SIGHUP caught while daemonized. Restarting.
+[06/Oct/2013:06:04:07] ENGINE Bus STOPPING
+[06/Oct/2013:06:04:07] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('127.0.0.1', 2000)) shut down
+[06/Oct/2013:06:04:07] ENGINE Stopped thread '_TimeoutMonitor'.
+[06/Oct/2013:06:04:07] ENGINE Stopped thread 'Autoreloader'.
+[06/Oct/2013:06:04:07] ENGINE Bus STOPPED
+[06/Oct/2013:06:04:07] ENGINE Bus EXITING
+[06/Oct/2013:06:04:07] ENGINE Bus EXITED
+[06/Oct/2013:06:04:07] ENGINE Waiting for child threads to terminate...
+[06/Oct/2013:06:04:07] ENGINE Re-spawning __init__.py
+[06/Oct/2013:06:04:38] ENGINE Listening for SIGHUP.
+[06/Oct/2013:06:04:38] ENGINE Listening for SIGTERM.
+[06/Oct/2013:06:04:38] ENGINE Listening for SIGUSR1.
+[06/Oct/2013:06:04:38] ENGINE Bus STARTING
+[06/Oct/2013:06:04:38] ENGINE Started monitor thread 'Autoreloader'.
+[06/Oct/2013:06:04:38] ENGINE Started monitor thread '_TimeoutMonitor'.
+[06/Oct/2013:06:04:38] ENGINE Serving on 127.0.0.1:2000
+[06/Oct/2013:06:04:38] ENGINE Bus STARTED
+[06/Oct/2013:06:16:05] ENGINE Listening for SIGHUP.
+[06/Oct/2013:06:16:05] ENGINE Listening for SIGTERM.
+[06/Oct/2013:06:16:05] ENGINE Listening for SIGUSR1.
+[06/Oct/2013:06:16:05] ENGINE Bus STARTING
+[06/Oct/2013:06:16:05] ENGINE Started monitor thread 'Autoreloader'.
+[06/Oct/2013:06:16:05] ENGINE Started monitor thread '_TimeoutMonitor'.
+[06/Oct/2013:06:16:10] ENGINE Error in 'start' listener <bound method Server.start of <cherrypy._cpserver.Server object at 0x1257790>>
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/site-packages/cherrypy/process/wspbus.py", line 197, in publish
+    output.append(listener(*args, **kwargs))
+  File "/usr/lib64/python2.7/site-packages/cherrypy/_cpserver.py", line 151, in start
+    ServerAdapter.start(self)
+  File "/usr/lib64/python2.7/site-packages/cherrypy/process/servers.py", line 168, in start
+    wait_for_free_port(*self.bind_addr)
+  File "/usr/lib64/python2.7/site-packages/cherrypy/process/servers.py", line 412, in wait_for_free_port
+    raise IOError("Port %r not free on %r" % (port, host))
+IOError: Port 2000 not free on '127.0.0.1'
+
+[06/Oct/2013:06:16:10] ENGINE Shutting down due to error in start listener:
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/site-packages/cherrypy/process/wspbus.py", line 235, in start
+    self.publish('start')
+  File "/usr/lib64/python2.7/site-packages/cherrypy/process/wspbus.py", line 215, in publish
+    raise exc
+ChannelFailures: IOError("Port 2000 not free on '127.0.0.1'",)
+
+[06/Oct/2013:06:16:10] ENGINE Bus STOPPING
+[06/Oct/2013:06:16:10] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('127.0.0.1', 2000)) already shut down
+[06/Oct/2013:06:16:10] ENGINE Stopped thread '_TimeoutMonitor'.
+[06/Oct/2013:06:16:10] ENGINE Stopped thread 'Autoreloader'.
+[06/Oct/2013:06:16:10] ENGINE Bus STOPPED
+[06/Oct/2013:06:16:10] ENGINE Bus EXITING
+[06/Oct/2013:06:16:10] ENGINE Bus EXITED
+[06/Oct/2013:06:16:51] ENGINE Caught signal SIGTERM.
+[06/Oct/2013:06:16:51] ENGINE Bus STOPPING
+[06/Oct/2013:06:16:51] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('127.0.0.1', 2000)) shut down
+[06/Oct/2013:06:16:51] ENGINE Stopped thread '_TimeoutMonitor'.
+[06/Oct/2013:06:16:51] ENGINE Stopped thread 'Autoreloader'.
+[06/Oct/2013:06:16:51] ENGINE Bus STOPPED
+[06/Oct/2013:06:16:51] ENGINE Bus EXITING
+[06/Oct/2013:06:16:51] ENGINE Bus EXITED
+[06/Oct/2013:06:16:51] ENGINE Waiting for child threads to terminate...
+[06/Oct/2013:06:17:29] ENGINE Listening for SIGHUP.
+[06/Oct/2013:06:17:29] ENGINE Listening for SIGTERM.
+[06/Oct/2013:06:17:29] ENGINE Listening for SIGUSR1.
+[06/Oct/2013:06:17:29] ENGINE Bus STARTING
+[06/Oct/2013:06:17:29] ENGINE Started monitor thread 'Autoreloader'.
+[06/Oct/2013:06:17:29] ENGINE Started monitor thread '_TimeoutMonitor'.
+[06/Oct/2013:06:17:29] ENGINE Serving on 127.0.0.1:2000
+[06/Oct/2013:06:17:29] ENGINE Bus STARTED
