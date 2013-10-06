@@ -16,6 +16,7 @@ word_list = ['']
 word_map = dict ()
 
 def clean (word):
+	word = word.lower ()
 	ret = ""
 	for c in word:
 		if c in ascii_lowercase:# or c == '':

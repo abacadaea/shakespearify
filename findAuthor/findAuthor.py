@@ -101,7 +101,7 @@ def train():
 	num_iter = 0
 	num_cor = 0
 	while True:
-		if num_iter >= MAX_TRAIN * EPOCHS/100:
+		if num_iter >= MAX_TRAIN * EPOCHS/10:
 			break
 		num_iter += 1
 
@@ -131,8 +131,9 @@ def test(sentence):
 
 def test_string (s):
 	sentence = []
-	for word in s:
+	for word in s.split():
 		sentence.append (clean (word))
+	print sentence
 	return test (sentence)
 
 print "Reading Input..."
@@ -146,6 +147,10 @@ train_bayes()
 setW()
 print "Training..."
 train()
+
+print test_string ("To be, or not to be")
+print test_string ("Oh what a rouge and peasant slave am i")
+print test_string ("Macbeth")
 
 print "Testing..."
 run_tests(test)
