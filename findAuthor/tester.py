@@ -61,4 +61,4 @@ def run_tests (predictor):
 		if ret == sentences [i][1]:
 			correct += 1
 		total += 1
-		print correct + '/' + total
+		print 100.0 * correct/total,'%', correct, '/', total

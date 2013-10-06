@@ -1,7 +1,6 @@
 from math import log
-from tester import read_input,get_train, run_tests
+from tester import read_input,get_train, run_tests, authors
 
-authors = []
 EPS = 1E-5
 
 freq = dict()
@@ -15,11 +14,11 @@ def train():
 
 	while example is not None:
 		[sentence, author] = example
-		words = sentence.rstrip().split()
+		words = sentence
 		for word in words:
 			if word not in freq[author]: # this code is ugly
-				freq[author] = 0	
-			freq[author] = 1
+				freq[author][word] = 0
+			freq[author][word] += 1
 
 		example = get_train()
 
@@ -28,7 +27,7 @@ def test(sentence):
 	for author in authors:
 		bayes[author] = 0
 
-	words = sentence.rstrip().split()
+	words = sentence
 	for word in words:
 		for author in authors:
 			if word not in freq[author]:
@@ -43,4 +42,4 @@ read_input ()
 print "Training..."
 train()
 print "Testing..."
-run_tests()
+run_tests(test)
