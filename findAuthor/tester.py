@@ -1,16 +1,6 @@
 import random, math
 from string import ascii_lowercase
-
-authors = [
-'aristotle',
-'dickens',
-'jefferson',
-'kant',
-'poe',
-'shakespeare',
-'sophocles',
-'yudkowsky'
-]
+from author import authors
 
 MAX_WORDS_PER_FILE = 10000000
 MAX_TRAIN = 100000
@@ -50,7 +40,7 @@ def read_input ():
 				word_clean = clean (word.lower ())
 				if len (word_clean) > 0:
 					words.append (word_clean)
-		print "Inputted", author, ";", numwords, "total words"
+		print "Inputted", author + ";", numwords, "total words"
 	random.shuffle (sentences)
 
 def get_train ():
@@ -71,8 +61,8 @@ def run_tests (predictor):
 		ret = predictor (sentences[i][0])
 		if ret == sentences [i][1]:
 			correct += 1
-		else:
-			print sentences [i][0], sentences [i][1], ret
+		# else:
+		# 	print sentences [i][0], sentences [i][1], ret
 		total += 1
 		if (i % 1000 == 999):
-			print 100.0 * correct/total,'%', correct, '/', total
+			print str(100.0 * correct/total) +'%', str(correct) + '/' + str(total)
