@@ -1,7 +1,17 @@
-from math import log
-from tester import read_input,get_train, run_tests, authors
+#findAuthor.py
 
+from math import log
+from tester import read_input,get_train, run_tests, authors, MAX_TRAIN, word_list, word_map
+import numpy
+
+EPOCHS = 1
+NUM_AUTHORS = len (authors)
 EPS = 1E-2
+
+NUM_WORDS = None
+N = None
+W = None
+alpha = 0.00001
 
 freq = dict()
 word_count = dict()
@@ -9,9 +19,49 @@ word_count = dict()
 for author in authors:
 	freq[author] = dict()
 
-def train():
+def mat_author(author):
+	global authors
+
+	for i in range (NUM_AUTHORS):
+		if authors [i] == author:
+			d = numpy.zeros((NUM_AUTHORS, 1)) 
+			d[i, 0] = 100
+			return numpy.mat (d)
+	assert (False)
+
+def get_feature_vector (sentence):
+	global word_map, N
+
+	X = numpy.zeros ((N, 1))
+	#0th element is 1
+	X [0, 0] = 1
+	for word in sentence:
+		if word in word_map:
+			X [word_map[word], 0] += 1
+    #use api stuff
+    
+    #done
+	return X
+
+
+def get_best (Y):
+	global authors
+	best = 0
+	for i in range (NUM_AUTHORS):
+		if Y[i, 0] > Y[best, 0]:
+			best = i
+	return authors [best]
+
+def train_bayes():
+	global MAX_TRAIN, freq, word_count
+
 	example = get_train()
-	while example is not None:
+	num_iter = 0	
+	while True:
+		if num_iter >= MAX_TRAIN:
+			break
+		num_iter += 1
+
 		[sentence, author] = example
 		words = sentence
 		for word in words:
@@ -24,27 +74,76 @@ def train():
 	for author in authors:
 		word_count[author] = sum([freq[author][key] for key in freq[author]]) + 0.0
 
+#set initial weights to naive bayes results
+def setW():
+	global W, NUM_AUTHORS, word_list, freq, word_count, authors
+
+	for i in range (NUM_AUTHORS):
+		for j in range(len(word_list)):
+			if j == 0:
+				continue
+			word = word_list [j]
+			author = authors [i]
+
+			score = log (EPS) - log (word_count [author])
+			if word in freq[author]:
+				score = log(freq[author][word]) - log(word_count[author])
+			W [i, j] = score
+
+def train():
+	global W,alpha, N, EPOCHS, MAX_TRAIN
+
+	example = get_train()
+    
+	num_iter = 0
+	num_cor = 0
+	while True:
+		if num_iter >= MAX_TRAIN * EPOCHS/10:
+			break
+		num_iter += 1
+
+		[sentence, author] = example
+        
+		x = numpy.mat (get_feature_vector (sentence))
+		d = mat_author (author)
+		Y = W * x
+		#W += alpha * (d - Y) * (x.transpose())
+
+		if num_iter % 1000 == 0:
+			print num_iter
+			print num_cor
+			num_cor = 0
+			print W
+		
+		"""
+		dawg = get_best (Y)
+		if get_best (Y) == author:
+			num_cor += 1
+			print dawg
+		"""
+
+		example = get_train()
 
 def test(sentence):
-	bayes = dict()
-	for author in authors:
-		bayes[author] = 0
+	global W
 
-	words = sentence
-	for word in words:
-		for author in authors:
-			if word not in freq[author]:
-				bayes[author] += log(EPS) - log(word_count[author])
-			else:
-				bayes[author] += log(freq[author][word]) - log(word_count[author])
-
-	return max(bayes.iterkeys(), key = (lambda key: bayes[key]))
+	x = get_feature_vector (sentence)
+	Y = W * x
+	ret = get_best (Y)
+	return ret
 
 print "Reading Input..."
 read_input ()
+N = len (word_list) # size of feature vector
+W = numpy.mat (numpy.zeros((NUM_AUTHORS, N)))
+NUM_WORDS = len(word_list)
+
+print "Training Bayes..."
+train_bayes()
+setW()
+print W
 print "Training..."
 train()
-
 
 print "Testing..."
 run_tests(test)
