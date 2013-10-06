@@ -1,8 +1,9 @@
 #findAuthor.py
 
 from math import log
-from tester import read_input,get_train, run_tests, authors, MAX_TRAIN, word_list, word_map
+from tester import read_input,get_train, run_tests, authors, MAX_TRAIN, word_list, word_map, clean
 import numpy
+import interpret
 
 EPOCHS = 1
 NUM_AUTHORS = len (authors)
@@ -11,7 +12,7 @@ EPS = 1E-2
 NUM_WORDS = None
 N = None
 W = None
-alpha = 0.00001
+alpha = 0.001
 
 freq = dict()
 word_count = dict()
@@ -39,10 +40,11 @@ def get_feature_vector (sentence):
 		if word in word_map:
 			X [word_map[word], 0] += 1
     #use api stuff
-    
+	score = interpret.stringToSentiment(' '.join(sentence))
+	X [NUM_WORDS, 0] = score
+
     #done
 	return X
-
 
 def get_best (Y):
 	global authors
@@ -109,12 +111,12 @@ def train():
 		Y = W * x
 		#W += alpha * (d - Y) * (x.transpose())
 
-		if num_iter % 1000 == 0:
+		
+		if num_iter % 10 == 0:
 			print num_iter
 			print num_cor
 			num_cor = 0
 			print W
-		
 		"""
 		dawg = get_best (Y)
 		if get_best (Y) == author:
@@ -132,16 +134,21 @@ def test(sentence):
 	ret = get_best (Y)
 	return ret
 
+def test_string (s):
+	sentence = []
+	for word in s:
+		sentence.append (clean (word))
+	return test (sentence)
+
 print "Reading Input..."
 read_input ()
-N = len (word_list) # size of feature vector
+N = len (word_list) + 1 # size of feature vector
 W = numpy.mat (numpy.zeros((NUM_AUTHORS, N)))
 NUM_WORDS = len(word_list)
 
 print "Training Bayes..."
 train_bayes()
 setW()
-print W
 print "Training..."
 train()
 

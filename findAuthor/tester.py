@@ -5,7 +5,7 @@ from string import ascii_lowercase
 from author import authors
 
 MAX_WORDS_PER_FILE = 1000000
-MAX_TRAIN = 100000
+MAX_TRAIN = 10000
 MAX_TEST = 1000
 
 sent_ind = 0
@@ -18,7 +18,7 @@ word_map = dict ()
 def clean (word):
 	ret = ""
 	for c in word:
-		if c in ascii_lowercase or c == ',':
+		if c in ascii_lowercase or c == '\'':
 			ret = ret + c
 	return ret
 
@@ -59,7 +59,6 @@ def get_train ():
 	global sent_ind, sentences
 
 	sent_ind = (sent_ind + 1) % MAX_TRAIN
-	print sent_ind, len (sentences)
 	return sentences [sent_ind]
 
 def run_tests (predictor):
@@ -72,9 +71,6 @@ def run_tests (predictor):
 		ret = predictor (sentences[i][0])
 		if ret == sentences [i][1]:
 			correct += 1
-		# else:
-		# 	print sentences [i][0], sentences [i][1], ret
 		total += 1
 		if (i % 10 == 9):
 			print str(100.0 * correct/total) +'%', str(correct) + '/' + str(total)
-			print ret

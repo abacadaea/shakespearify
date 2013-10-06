@@ -3,6 +3,17 @@ import json
 
 alchemyapi = AlchemyAPI()
 
+def stringToSentiment(string):
+	response = alchemyapi.sentiment('text', string)
+
+	if response['status'] == 'OK':
+		if response['docSentiment']['type'] != "neutral":
+			return response['docSentiment']['score']
+		else:
+			return 0.0
+	else:
+		print ('Error.')
+
 def stringToEntities(string, attribute = None):
   response = alchemyapi.entities('text', string, {'sentiment' : 1})
   if response['status'] == 'OK':
