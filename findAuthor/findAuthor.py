@@ -1,7 +1,7 @@
 from math import log
 from tester import read_input,get_train, run_tests, authors
 
-EPS = 1E-3
+EPS = 1E-2
 
 freq = dict()
 word_count = dict()
@@ -10,9 +10,7 @@ for author in authors:
 	freq[author] = dict()
 
 def train():
-
 	example = get_train()
-
 	while example is not None:
 		[sentence, author] = example
 		words = sentence
