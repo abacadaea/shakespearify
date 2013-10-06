@@ -210,3 +210,21 @@ ChannelFailures: IOError("Port 2000 not free on '127.0.0.1'",)
 [06/Oct/2013:04:50:06] ENGINE Bus STOPPED
 [06/Oct/2013:04:50:06] ENGINE Bus EXITING
 [06/Oct/2013:04:50:06] ENGINE Bus EXITED
+[06/Oct/2013:05:16:13] ENGINE Restarting because /home/msd/Code/HackMIT/shakespearify/findAuthor/findAuthor.py changed.
+[06/Oct/2013:05:16:13] ENGINE Stopped thread 'Autoreloader'.
+[06/Oct/2013:05:16:13] ENGINE Bus STOPPING
+[06/Oct/2013:05:16:13] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('127.0.0.1', 2000)) shut down
+[06/Oct/2013:05:16:13] ENGINE Stopped thread '_TimeoutMonitor'.
+[06/Oct/2013:05:16:13] ENGINE Bus STOPPED
+[06/Oct/2013:05:16:13] ENGINE Bus EXITING
+[06/Oct/2013:05:16:13] ENGINE Bus EXITED
+[06/Oct/2013:05:16:13] ENGINE Waiting for child threads to terminate...
+[06/Oct/2013:05:16:13] ENGINE Re-spawning __init__.py
+[06/Oct/2013:05:16:42] ENGINE Listening for SIGHUP.
+[06/Oct/2013:05:16:42] ENGINE Listening for SIGTERM.
+[06/Oct/2013:05:16:42] ENGINE Listening for SIGUSR1.
+[06/Oct/2013:05:16:42] ENGINE Bus STARTING
+[06/Oct/2013:05:16:42] ENGINE Started monitor thread 'Autoreloader'.
+[06/Oct/2013:05:16:42] ENGINE Started monitor thread '_TimeoutMonitor'.
+[06/Oct/2013:05:16:42] ENGINE Serving on 127.0.0.1:2000
+[06/Oct/2013:05:16:42] ENGINE Bus STARTED
