@@ -112,11 +112,6 @@ def train():
 		Y = W * x
 		W += alpha * (d - Y) * (x.transpose())
 		
-		if num_iter % 10 == 0:
-			print num_iter
-			print num_cor
-			num_cor = 0
-			print W
 		"""
 		dawg = get_best (Y)
 		if get_best (Y) == author:
