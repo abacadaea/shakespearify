@@ -7,9 +7,10 @@ class Main:
   def index(self):
     tmpl = lookup.get_template("index.txt")
     return tmpl.render()
-  
   def analyze(self, sentenceReceived=None):
     print sentenceReceived
+    tmpl = lookup.get_template("index.txt")
+    return tmpl.render()
 
   index.exposed = True
   analyze.exposed=True
