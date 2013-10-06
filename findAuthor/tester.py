@@ -1,4 +1,5 @@
 from math import log
+from tester import get_train
 
 authors = []
 EPS = 1E-5
@@ -9,11 +10,18 @@ for author in authors:
 	freq[author] = dict()
 
 def train(sentence, author):
-	words = sentence.rstrip().split()
-	for word in words:
-		if word not in freq[author]: # this code is ugly
-			freq[author] = 0	
-		freq[author] = 1
+
+	example = get_train()
+
+	while example is not None:
+		[sentence, author] = example
+		words = sentence.rstrip().split()
+		for word in words:
+			if word not in freq[author]: # this code is ugly
+				freq[author] = 0	
+			freq[author] = 1
+
+		example = get_train()
 
 def test(sentence):
 	bayes = dict()
