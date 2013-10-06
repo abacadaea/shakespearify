@@ -1,5 +1,5 @@
 from math import log
-from tester import get_train, run_tests
+from tester import read_input,get_train, run_tests
 
 authors = []
 EPS = 1E-5
@@ -38,5 +38,9 @@ def test(sentence):
 
 	return max(bayes.iterkeys(), key = (lambda key: bayes[key]))
 
+print "Reading Input..."
+read_input ()
+print "Training..."
 train()
+print "Testing..."
 run_tests()

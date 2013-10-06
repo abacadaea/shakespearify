@@ -1,4 +1,5 @@
 import random, math
+from string import ascii_lowercase
 
 authors = [
 'shakespeare', 
@@ -30,7 +31,7 @@ def read_input ():
 		words = []
 
 		for line in wordfile:
-			cur_words = lines.split ()
+			cur_words = line.split ()
 			for word in cur_words:
 				if (word [len (word) - 1] == '.'):
 					if (len (words) > 0):
@@ -42,12 +43,16 @@ def read_input ():
 	random.shuffle (sentences)
 
 def get_train ():
-	if num_train >= MAX_TRAIN:
+	global sent_ind, sentences
+
+	if sent_ind >= MAX_TRAIN:
 		return None
 	sent_ind += 1
 	return sentences [sent_ind]
 
 def run_tests (predictor):
+	global sent_ind, sentences
+	
 	correct = 0
 	total = 0
 	
