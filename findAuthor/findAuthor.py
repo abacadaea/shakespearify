@@ -1,5 +1,5 @@
 from math import log
-from tester import get_train
+from tester import get_train, run_tests
 
 authors = []
 EPS = 1E-5
@@ -9,7 +9,7 @@ freq = dict()
 for author in authors:
 	freq[author] = dict()
 
-def train(sentence, author):
+def train():
 
 	example = get_train()
 
@@ -37,3 +37,6 @@ def test(sentence):
 				bayes[author] += log(freq[author][word])
 
 	return max(bayes.iterkeys(), key = (lambda key: bayes[key]))
+
+train()
+run_tests()
